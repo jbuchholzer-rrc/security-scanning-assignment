@@ -13,11 +13,11 @@ db_config = {
 }
 
 def get_user_input():
-    user_input = input('Enter your name: ')
+    user_input = input("Enter your name: ")
     return user_input
 
 def send_email(to, subject, body):
-    os.system(f'echo {body} | mail -s "{subject}" {to}')
+    os.system(f"echo {body} | mail -s \"{subject}\" {to}")
 
 
 
@@ -34,7 +34,7 @@ def save_to_db(data):
     connection = pymysql.connect(**db_config)
     try:
         with connection.cursor() as cursor:
-            cursor.execute(query, (data, 'Another Value'))
+            cursor.execute(query, (data, "Another Value"))
         connection.commit()
     finally:
         connection.close()
@@ -43,4 +43,4 @@ if __name__ == '__main__':
     user_input = get_user_input()
     data = get_data()
     save_to_db(data)
-    send_email(os.getenv('ADMIN_EMAIL'), 'User Input', user_input)
+    send_email(os.getenv("ADMIN_EMAIL"), "User Input", user_input)
