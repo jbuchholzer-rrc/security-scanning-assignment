@@ -23,13 +23,11 @@ def send_email(to, subject, body):
     os.system(f"echo {body} | mail -s \"{subject}\" {to}")
 
 
-
 # Proper syntax on endpoint URL and use secure hypertext transfer protocol
 def get_data():
     url = "https://insecure-api.com/get-data"
     data = urlopen(url).read().decode()
     return data
-
 
 
 # Use parameterized queries to prevent SQL injection
@@ -49,5 +47,3 @@ if __name__ == '__main__':
     data = get_data()
     save_to_db(data)
     send_email(os.getenv("ADMIN_EMAIL"), "User Input", user_input)
-
-
