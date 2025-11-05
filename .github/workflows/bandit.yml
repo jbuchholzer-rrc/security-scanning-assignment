@@ -1,10 +1,11 @@
+---
 name: Bandit Security Scan
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   bandit:
@@ -34,7 +35,7 @@ jobs:
           fi
       
       - name: Upload Bandit results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated to v4
         if: always()
         with:
           name: bandit-results
