@@ -24,6 +24,9 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
-          # Optional: Disable specific linters that are too strict
-          VALIDATE_PYTHON_BLACK: false  # Optional: disable black if you don't want to enforce its formatting
-          VALIDATE_PYTHON_ISORT: false  # Optional: disable isort if you don't want to enforce import sorting
+          # Python linters - set to true to enable, false to disable
+          VALIDATE_PYTHON_BLACK: true      # Formatting checker
+          VALIDATE_PYTHON_PYLINT: true     # General Python linter
+          VALIDATE_PYTHON_FLAKE8: true     # Style guide enforcement
+          VALIDATE_PYTHON_ISORT: true      # Import sorting
+          VALIDATE_PYTHON_MYPY: true       # Type checking
