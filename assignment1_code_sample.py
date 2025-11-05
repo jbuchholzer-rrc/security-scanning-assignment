@@ -1,20 +1,23 @@
 import os
-import pymysql
 from urllib.request import urlopen
+
+import pymysql
 from dotenv import load_dotenv
 
 # Store sensitive information in environment variables instead of hardcoding
 load_dotenv()
 
 db_config = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD')
+    "host": os.getenv("DB_HOST"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD")
 }
+
 
 def get_user_input():
     user_input = input("Enter your name: ")
     return user_input
+
 
 def send_email(to, subject, body):
     os.system(f"echo {body} | mail -s \"{subject}\" {to}")
@@ -28,6 +31,7 @@ def get_data():
     return data
 
 
+
 # Use parameterized queries to prevent SQL injection
 def save_to_db(data):
     query = "INSERT INTO mytable (column1, column2) VALUES (%s, %s)"
@@ -39,8 +43,11 @@ def save_to_db(data):
     finally:
         connection.close()
 
+
 if __name__ == '__main__':
     user_input = get_user_input()
     data = get_data()
     save_to_db(data)
     send_email(os.getenv("ADMIN_EMAIL"), "User Input", user_input)
+
+
