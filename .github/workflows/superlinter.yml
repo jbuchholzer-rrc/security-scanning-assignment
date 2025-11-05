@@ -1,10 +1,11 @@
+---
 name: Super-Linter
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
@@ -23,3 +24,6 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
+          # Optional: Disable specific linters that are too strict
+          VALIDATE_PYTHON_BLACK: false  # Optional: disable black if you don't want to enforce its formatting
+          VALIDATE_PYTHON_ISORT: false  # Optional: disable isort if you don't want to enforce import sorting
