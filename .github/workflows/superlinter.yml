@@ -30,3 +30,11 @@ jobs:
           VALIDATE_PYTHON_FLAKE8: true     # Style guide enforcement
           VALIDATE_PYTHON_ISORT: true      # Import sorting
           VALIDATE_PYTHON_MYPY: true       # Type checking
+            # JavaScript linters
+          VALIDATE_JAVASCRIPT_ES: true     # ESLint for JavaScript
+          VALIDATE_JAVASCRIPT_STANDARD: true # StandardJS
+          VALIDATE_JSCPD: true             # Copy/paste detection
+          # TypeScript linters
+          VALIDATE_TYPESCRIPT_ES: true     # ESLint for TypeScript
+          VALIDATE_TYPESCRIPT_STANDARD: true # StandardTS
+          VALIDATE_TSX: true               # TSX files (React TypeScript)
