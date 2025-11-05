@@ -10,7 +10,7 @@ load_dotenv()
 db_config = {
     "host": os.getenv("DB_HOST"),
     "user": os.getenv("DB_USER"),
-    "password": os.getenv("DB_PASSWORD")
+    "password": os.getenv("DB_PASSWORD"),
 }
 
 
@@ -20,7 +20,7 @@ def get_user_input():
 
 
 def send_email(to, subject, body):
-    os.system(f"echo {body} | mail -s \"{subject}\" {to}")
+    os.system(f'echo {body} | mail -s "{subject}" {to}')
 
 
 # Proper syntax on endpoint URL and use secure hypertext transfer protocol
@@ -42,7 +42,7 @@ def save_to_db(data):
         connection.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     user_input = get_user_input()
     data = get_data()
     save_to_db(data)
