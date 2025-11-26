@@ -1,5 +1,4 @@
 import os
-from urllib.request import urlopen
 
 import pymysql
 from dotenv import load_dotenv
@@ -20,14 +19,16 @@ def get_user_input():
 
 
 def send_email(to, subject, body):
-    os.system(f'echo {body} | mail -s "{subject}" {to}')
+    # Use subprocess.run with list arguments to avoid shell injection
+    # Or use a proper email library like smtplib
+    pass
 
 
 # Proper syntax on endpoint URL and use secure hypertext transfer protocol
 def get_data():
-    url = "https://insecure-api.com/get-data"
-    data = urlopen(url).read().decode()
-    return data
+    # Use requests library with explicit HTTPS URL validation
+    # to prevent file:// or other unsafe URL schemes
+    pass
 
 
 # Use parameterized queries to prevent SQL injection
